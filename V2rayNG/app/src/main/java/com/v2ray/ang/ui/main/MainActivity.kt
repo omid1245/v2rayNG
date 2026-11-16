@@ -94,6 +94,11 @@ class MainActivity : HelperBaseComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (!com.v2ray.ang.ui.panel.PanelStore(this).isLoggedIn) {
+            com.v2ray.ang.ui.panel.LoginActivity.start(this)
+            finish()
+            return
+        }
         mainViewModel.onAction(MainAction.Initialize)
 
         checkAndRequestPermission(PermissionType.POST_NOTIFICATIONS) {}
