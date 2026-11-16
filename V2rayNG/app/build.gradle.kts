@@ -11,6 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.v2ray.ang"
+        buildConfigField("String", "API_URL", "\"${System.getenv("API_URL") ?: "https://app.omidir.xyz:8080"}\"")
         minSdk = 24
         targetSdk = 37
         versionCode = 760
