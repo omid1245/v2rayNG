@@ -10,9 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Apply zip
         run: |
-          mkdir -p /tmp/s1
-          unzip -o V2rayNG/v2rayng-stage1-login.zip -d /tmp/s1
-          cp -r /tmp/s1/V2rayNG/. V2rayNG/
+          unzip -o V2rayNG/v2rayng-stage1-login.zip -d .
           rm V2rayNG/v2rayng-stage1-login.zip
       - name: Commit
         run: |
@@ -21,3 +19,4 @@ jobs:
           git add -A
           git commit -m "Apply stage1 login" || echo "nothing to commit"
           git push
+          
